@@ -1,7 +1,11 @@
 Author:         Elysium Hosack
+
 Class:          GMD-200-03
+
 Assignment:     Vertical Shooter
+
 Date Assigned:  18/01/2023
+
 Due Date:       19/02/2023 (Final deliverable)
 
 ----
