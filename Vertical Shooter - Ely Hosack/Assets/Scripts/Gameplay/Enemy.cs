@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private GameManager gameManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        gameManager = GameManager.singleton;
+        tag = "Enemy";
     }
 
     //detect collision
@@ -23,6 +19,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            gameManager.score += 10;
+            gameManager.hits++;
+
+
         }
     }
 }
