@@ -23,6 +23,7 @@ public class FireLaser : MonoBehaviour
 
     void Fire()
     {
+
         GameObject laserInstance = Instantiate(laserPrefab, transform.position, transform.rotation);
 
         laserInstance.tag = "Laser";
@@ -32,5 +33,7 @@ public class FireLaser : MonoBehaviour
         laserInstance.GetComponent<Rigidbody2D>().AddForce(20 * travelDirection, ForceMode2D.Impulse);
         Destroy(laserInstance, 2f);
 
+        GameManager.singleton.shots++;
+        
     }
 }
