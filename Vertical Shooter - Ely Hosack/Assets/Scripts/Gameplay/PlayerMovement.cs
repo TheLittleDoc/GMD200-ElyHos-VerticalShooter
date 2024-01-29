@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
         initialPos = transform.position;
     }
 
@@ -23,7 +23,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") || Input.GetAxis("Vertical") > 0)
         {
+            //add player sprite shake while firing
             transform.position = new Vector2(transform.position.x + Random.Range(-.02f, .02f), transform.position.y + Random.Range(-.02f, .02f));
+
+
         }
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, mouse - (Vector2)transform.position);
@@ -48,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, initialPos.y - GameManager.maxY);
         }
+
+        
         rb.AddForce(movement * 10f);
     }
+
+    
 }
