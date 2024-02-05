@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class getshots : MonoBehaviour
+public class GetVariableToText : MonoBehaviour
 {
     private TextMeshProUGUI textObject;
     [SerializeField] private string variableName;
@@ -17,6 +17,6 @@ public class getshots : MonoBehaviour
     void Update()
     {
         //set text to be variable listed in variableName
-        textObject.text = variableName + ": " + GameManager.singleton.GetType().GetField(variableName).GetValue(GameManager.singleton);
+        textObject.text = GameManager.singleton.GetType().GetField(variableName).GetValue(GameManager.singleton) + " " + variableName;
     }
 }
