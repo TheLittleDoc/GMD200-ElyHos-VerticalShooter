@@ -16,6 +16,16 @@ public class CollisionWithEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            gameManager.musicHandler.PlaySoundEffect(3);
+            gameManager.health -= 1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("LaserEnemy"))
+        {
+            gameManager.musicHandler.PlaySoundEffect(2);
             gameManager.health -= 1;
         }
     }
